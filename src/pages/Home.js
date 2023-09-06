@@ -12,7 +12,7 @@ export const Home = () => {
   const { data, isLoading } = useFetchBooksQuery();
 
   const user = useSelector((state) => state.login.user);
-
+  console.log("home")
 
   const handleCategoryFilter = (category) => {
     setSelectedCategory(category);
