@@ -3,7 +3,7 @@ import './App.css';
 import { Home } from './pages/Home';
 import { Cart } from './pages/Cart';
 import { Navbar } from './components/Navbar'
-import {  Routes, Route } from 'react-router-dom';
+import {  Routes, Route, useNavigate } from 'react-router-dom';
 import { Login } from './pages/Login';
 import { Signup } from './pages/Signup';
 import { Profile } from './pages/Profile';
@@ -22,6 +22,7 @@ function App() {
   const state = useSelector( (state)=> state)
   const refresh_token = state.login.refreshToken
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   async function refreshTokens(refresh_token) {
     try { 
@@ -36,6 +37,7 @@ function App() {
         console.log("Unauthorized. Logging out...");
         localStorage.clear();
         dispatch(logout());
+        navigate('/')
       } else {
         console.error("Unexpected error:", response.statusText);
       }
@@ -44,6 +46,7 @@ function App() {
         console.log("loggingggg.......out")
         dispatch(logout());
         localStorage.clear();
+        navigate('/')
       }
     }
   }
