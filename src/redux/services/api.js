@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 export const api = createApi({
     reducerPath : 'user-api',
     baseQuery : fetchBaseQuery({
-        baseUrl : 'https://tapankr07.pythonanywhere.com/api/',
+        baseUrl : 'https://localhost:8000/api/',
     }),
     endpoints : (builder)=>({
 
